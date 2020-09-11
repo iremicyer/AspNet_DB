@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Hesapla";
+}
+
+<h2>Hesapla</h2>
+
+@using (Html.BeginForm("Hesapla", "Home", FormMethod.Post))
+{
+
+    @Html.Label("Vize Notu Giriniz");
+    @Html.TextBox("vNot", null, new { @class = "form-control", type = "number", required = "required" });
+
+    @Html.Label("Uygulama Notu Giriniz");
+    @Html.TextBox("uNot", null, new { @class = "form-control", type = "number", required = "required" });
+
+    @Html.Label("Final Notu Giriniz");
+    @Html.TextBox("fNot", null, new { @class = "form-control", type = "number", required = "required" });
+
+
+    <br />
+    <input type="submit" value="Hesapla" class="btn btn-success" /> 
+    <br />
+    <br />
+
+    if (ViewBag.sonuc != null)
+    {
+
+
+        <div class="@ViewBag.cl">Ortalama : @ViewBag.ortalama Sonuç: @ViewBag.sonuc</div>
+    }
+}
+

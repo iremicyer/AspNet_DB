@@ -1,0 +1,22 @@
+﻿@model IEnumerable<AspNet_DB.Models.KayitModel>
+@{
+    ViewBag.Title = "Kayitlar";
+}
+
+<h2>Kayitlar</h2> 
+<table class="table">
+    <tr>
+        <td> KN </td>
+        <td> Adı Soyadı </td>
+        <td> Detay </td>
+    </tr>
+    @foreach (var kayit in Model) // HomeControl'de yazdığımız kayıtları tek tek dolaşan döngü
+    {
+        <tr>
+            <td> @kayit.kayId </td>
+            <td> @kayit.adsoyad </td>   
+            <td> @Html.ActionLink("Kişi Detayı", "Detay", new { ıd = kayit.kayId }, new { @class = "btn btn-primary" }) </td> 
+        </tr>
+    }
+</table>
+
